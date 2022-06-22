@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-2" href="index.html">榮田供應鏈管理系統</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+
+
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="bi bi-bell text-white" style="font-size: 19px;"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">notification</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" style="color: #00397e;" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"><i class="bi bi-envelope-exclamation text-white"
+                        style="font-size: 19px;"></i></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw text-white"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" style="color: #00397e;" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu my-custom-scrollbar">
+                    <div class="nav">
+                        <div class="sb-nav-link-icon">
+                            <h5><a class="nav-link text-white" href="index.html">日常異動</a></h5>
+                        </div>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            供應商回覆
+                        </a>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            物料追料供應商確認
+                        </a>
+                        <a class="nav-link small collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"></div>
+                            採購_訂單處理
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link small" href="index.html">取消訂單回覆</a>
+                                <a class="nav-link small" href="indext.html">交貨作業</a>
+                                <a class="nav-link small" href="index.html">取消交貨作業</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link small collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"></div>
+                            加工_移轉作業
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link small" href="index.html">移轉點收</a>
+                                <a class="nav-link small" href="index.html">交貨作業</a>
+                                <a class="nav-link small" href="index.html">取消交貨作業</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            供應商回覆
+                        </a>
+                        <div class="sb-nav-link-icon">
+                            <h5><a class="nav-link small text-white" href="index.html">查詢作業</a></h5>
+                        </div>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            採購收料驗收查詢
+                        </a>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            製令製程交貨狀況查詢
+                        </a>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            應付帳款查詢
+                        </a>
+                        <a class="nav-link small" href="processProgress.html">
+                            <div class="sb-nav-link-icon"></div>
+                            委外加工生產進度看板
+                        </a>
+                        <!-- <a class="nav-link small collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                            aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"></div>
+                            Pages
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link small collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth">
+                                    Authentication
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link small" href="login.html">Login</a>
+                                        <a class="nav-link small" href="register.html">Register</a>
+                                        <a class="nav-link small" href="password.html">Forgot Password</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link small collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseError" aria-expanded="false"
+                                    aria-controls="pagesCollapseError">
+                                    Error
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link small" href="401.html">401 Page</a>
+                                        <a class="nav-link small" href="404.html">404 Page</a>
+                                        <a class="nav-link small" href="500.html">500 Page</a>
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div> -->
+                        <div class="sb-nav-link-icon">
+                            <h5><a class="nav-link text-white" href="index.html">報表列印</a></h5>
+                        </div>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            採購單憑證
+                        </a>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            採購變更單憑證
+                        </a>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            採購在途進貨單
+                        </a>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            託外進貨單
+                        </a>
+                        <!-- <a class="nav-link small" href="charts.html">
+                            <div class="sb-nav-link-icon"></div>
+                            Charts
+                        </a>
+                        <a class="nav-link small" href="tables.html">
+                            <div class="sb-nav-link-icon"></div>
+                            Tables
+                        </a> -->
+                        <div class="sb-nav-link-icon">
+                            <h5><a class="nav-link text-white" href="index.html">下載專區</a></h5>
+                        </div>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            採購單附件(廠商)
+                        </a>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            採購變更單附件(廠商)
+                        </a>
+                        <a class="nav-link small" href="index.html">
+                            <div class="sb-nav-link-icon"></div>
+                            採購單_附件下載設定(採購人員)
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Start Bootstrap
+                </div>
+            </nav>
+            <div class=".simplebar-track simplebar-vertical"></div>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4 gy-2">
+                    <h3 class="mt-4">委外加工生產進度看板</h3>
+                    <!-- <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol> -->
+                    <form class="row gx-3 gy-2  align-items-center">
+                        <div class="col-auto form-floating">
+                            <input type="text" class="form-control" id="TA006">
+                            <label for="TA006">產品編號</label>
+                        </div>
+                        <div class="col-auto form-floating">
+                            <input type="text" class="form-control" id="TA034">
+                            <label for="TA034">產品名稱</label>
+                        </div>
+                        <div class="col-auto form-floating">
+                            <select class="form-select" id="STAT" aria-label="Floating label select example">
+                                <option selected>未結案</option>
+                                <option value="1">已結案</option>
+                                <option value="2">全部</option>
+                            </select>
+                            <label for="STAT">訂單狀態</label>
+                        </div>
+                        <div class="col-auto form-floating">
+                            <input type="text" class="form-control" id="TA001">
+                            <label for="TA006">製令單別</label>
+                        </div>
+                        <div class="col-auto form-floating">
+                            <input type="text" class="form-control" id="TA002">
+                            <label for="TA034">製令單號</label>
+                        </div>
+                        <div class="col-auto form-floating">
+                            <input type="text" class="form-control" id="VNO">
+                            <label for="TA034">廠商</label>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">確認</button>
+                        </div>
+                    </form>
+                    <div class="row px-4 p-2">
+                        <div class="col">
+                            <h5 class="text-white">生產進度</h5>
+                            <i class="bi bi-circle-fill" style=" color:rgb(102, 231, 37);"></i><span
+                                class="text-white">完工</span>
+                            <i class="bi bi-circle-fill" style=" color:rgb(253, 220, 74);"></i><span
+                                class="text-white">生產中</span>
+                            <i class="bi bi-circle-fill" style=" color:rgb(165, 164, 164);"></i><span
+                                class="text-white">未生產</span>
+                        </div>
+                        <div class="col">
+                            <h5 class="text-white">重工單</h5>
+                            <i class="bi bi-arrow-clockwise" style=" color:red; font-size: 22px;"></i><span
+                                class="text-white">重工</span>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-md-2">
+                            <div class="card border-primary border">
+                                <h6 class="card-header">M512-1040918033</h6>
+                                <div class="card-body">
+                                    <ul class="list-unstyled">
+                                        <li class="card-text">產品編號:<span class="text-info">VL20DC051001Y</span></li>
+                                        <li class="card-text">產品名稱:<span class="text-info">滑座(加工圖) (完成品不修改)</span></li>
+                                        <li class="card-text">規格:<span class="text-info">FC30 710x1</span></li>
+                                        <li class="card-text">製令預計產量:<span class="text-info">1</span></li>
+                                        <li class="card-text">製程預計完工日:<span class="text-info">20151210</span></li>
+                                        <li class="card-text">已生產數:<span class="text-info">0</span></li>
+                                    </ul>
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+                        <div class="col-md-10">
+                            <div class="row" style=" overflow:auto; flex-wrap: nowrap;">
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-circle-fill" style=" color:rgb(102, 231, 37);"></i>採購</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-circle-fill" style=" color:rgb(253, 220, 74);"></i>加工至完成</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-circle-fill" style=" color:rgb(165, 164, 164);"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-md-2">
+                            <div class="card border-primary border">
+                                <h6 class="card-header">M512-1040918033</h6>
+                                <div class="card-body">
+                                    <ul class="list-unstyled">
+                                        <li class="card-text">產品編號:<span class="text-info">VL20DC051001Y</span></li>
+                                        <li class="card-text">產品名稱:<span class="text-info">滑座(加工圖) (完成品不修改)</span></li>
+                                        <li class="card-text">規格:<span class="text-info">FC30 710x1</span></li>
+                                        <li class="card-text">製令預計產量:<span class="text-info">1</span></li>
+                                        <li class="card-text">製程預計完工日:<span class="text-info">20151210</span></li>
+                                        <li class="card-text">已生產數:<span class="text-info">0</span></li>
+                                    </ul>
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+                        <div class="col-md-10">
+                            <div class="row" style=" overflow:auto; flex-wrap: nowrap;">
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-circle-fill" style=" color:rgb(102, 231, 37);"></i>採購</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-circle-fill" style=" color:rgb(253, 220, 74);"></i>加工至完成
+                                        </h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-circle-fill" style=" color:rgb(165, 164, 164);"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-md-2">
+                            <div class="card border-primary border">
+                                <h6 class="card-header">M512-1040918033</h6>
+                                <div class="card-body">
+                                    <ul class="list-unstyled">
+                                        <li class="card-text">產品編號:<span class="text-info">VL20DC051001Y</span></li>
+                                        <li class="card-text">產品名稱:<span class="text-info">滑座(加工圖) (完成品不修改)</span></li>
+                                        <li class="card-text">規格:<span class="text-info">FC30 710x1</span></li>
+                                        <li class="card-text">製令預計產量:<span class="text-info">1</span></li>
+                                        <li class="card-text">製程預計完工日:<span class="text-info">20151210</span></li>
+                                        <li class="card-text">已生產數:<span class="text-info">0</span></li>
+                                    </ul>
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+                        <div class="col-md-10">
+                            <div class="row" style=" overflow:auto; flex-wrap: nowrap;">
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-circle-fill" style=" color:rgb(102, 231, 37);"></i>採購</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-circle-fill" style=" color:rgb(253, 220, 74);"></i>加工至完成
+                                        </h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-circle-fill" style=" color:rgb(165, 164, 164);"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <h6 class="card-header"><i class="bi bi-arrow-clockwise" style=" color:red;"></i>噴漆</h6>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li class="card-text">加工商:<span class="text-info">G13022 正鋒</span></li>
+                                                <li class="card-text">投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">重工投入/完成數:<span class="text-info">0/0</span></li>
+                                                <li class="card-text">在製:<span class="text-info">0</span></li>
+                                                <li class="card-text">預計完工日:<span class="text-info">20151115</span></li>
+                                                <li class="card-text">實際完工日:<span class="text-info">20151115</span></li>
+                                            </ul>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="py-1 bg-dark mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Honor Seiki 2022</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+</body>
+
+</html>
